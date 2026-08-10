@@ -3,7 +3,7 @@ name: ux-tips
 description: Collection of 85 practical UX/UI tips (micro-interactions, components, accessibility, mobile, perceived performance, dark mode, i18n) organized by topic. Use this skill when designing, reviewing, or generating user interfaces and you want to apply established UX patterns and details instead of improvising.
 license: MIT
 metadata:
-  author: user
+  author: Anomalyforlife
   version: "2.0.0"
   date: 2026-08-10
   abstract: Reference guide with 85 UX/UI tips, split across 7 thematic files under references/ to avoid loading all the content at once. Each tip is a concise bullet list with the practical rule and the reasoning behind it.
