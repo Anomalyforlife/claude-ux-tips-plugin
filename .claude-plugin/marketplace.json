@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "claude-ux-tips-skill",
+  "description": "Marketplace for the ux-tips plugin: 85 practical UX/UI tips organized by topic.",
+  "owner": {
+    "name": "Anomalyforlife"
+  },
+  "plugins": [
+    {
+      "name": "ux-tips",
+      "description": "85 practical UX/UI tips organized by topic (micro-interactions, components, accessibility, mobile, perceived performance, dark mode, i18n) as a Claude Code skill.",
+      "author": {
+        "name": "Anomalyforlife"
+      },
+      "category": "productivity",
+      "source": "./"
+    }
+  ]
+}

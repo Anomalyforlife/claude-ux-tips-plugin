@@ -19,11 +19,11 @@ A [Claude Code](https://claude.com/claude-code) plugin containing 85 practical U
 
 ### As a plugin (recommended)
 
-Add this repo as a Claude Code plugin marketplace source, then install it:
+This repo is itself a plugin marketplace (single plugin). Add it as a source, then install:
 
 ```
 /plugin marketplace add Anomalyforlife/claude-ux-tips-skill
-/plugin install ux-tips
+/plugin install ux-tips@claude-ux-tips-skill
 ```
 
 ### As a standalone skill
