@@ -1,39 +1,38 @@
-# Dark mode, internazionalizzazione, immagini responsive
+# Dark mode, internationalization, responsive images
 
-## 66. Overflow e truncation del testo: casi limite da gestire
-
-
-- Un flex child non si restringe sotto la dimensione del proprio testo di default: serve `min-width: 0` per farlo funzionare.
-- Per nomi file o email, tronca **nel mezzo** invece che alla fine, per preservare estensione/dominio (l'informazione più utile).
-- Usa `font-variant-numeric: tabular-nums` per numeri che cambiano spesso, evitando che il layout "balli" ad ogni aggiornamento.
-- Applica `overflow-wrap: anywhere` per URL lunghi che altrimenti farebbero esplodere il contenitore (il browser non spezza mai una parola).
+## 66. Text overflow and truncation: edge cases to handle
 
 
-## 77. Dark mode: non è solo invertire i colori
+- A flex child doesn't shrink below the size of its own text by default: `min-width: 0` is needed to make it work.
+- For filenames or emails, truncate **in the middle** rather than at the end, to preserve the extension/domain (the most useful information).
+- Use `font-variant-numeric: tabular-nums` for numbers that change frequently, to avoid the layout "jumping" on every update.
+- Apply `overflow-wrap: anywhere` for long URLs that would otherwise blow out the container (the browser never breaks a word on its own).
 
 
-- Il nero puro (#000) su schermi OLED crea un contrasto eccessivo che affatica: usa grigi molto scuri (es. #121212).
-- Le ombre non funzionano in dark mode: sostituiscile con bordi sottili o variazioni di luminosità per comunicare elevazione.
-- I colori saturi "vibrano" su sfondo scuro: desatura leggermente i colori semantici (successo, errore) rispetto alla versione light.
-- Immagini e illustrazioni spesso necessitano una variante dedicata, non solo un filtro di inversione automatico.
+## 77. Dark mode: it's not just inverting colors
 
 
-## 81. Internazionalizzazione e layout RTL
+- Pure black (#000) on OLED screens creates excessive contrast that causes fatigue: use very dark grays (e.g., #121212).
+- Shadows don't work in dark mode: replace them with thin borders or brightness variations to communicate elevation.
+- Saturated colors "vibrate" on a dark background: slightly desaturate semantic colors (success, error) compared to the light version.
+- Images and illustrations often need a dedicated variant, not just an automatic inversion filter.
 
 
-- Non hardcodare mai `left`/`right` in CSS: usa proprietà logiche (`margin-inline-start`, `padding-inline-end`) per un flip automatico in arabo/ebraico.
-- Le icone direzionali (frecce back/next, chevron) vanno specchiate in RTL, ma icone di significato universale (play, check) restano invariate.
-- Il testo tradotto può occupare fino al 30-40% di spazio in più (tedesco, finlandese): non fissare larghezze rigide su bottoni ed etichette.
-- Date, numeri e valute vanno formattati con le API locale-aware del browser (`Intl.DateTimeFormat`, `Intl.NumberFormat`), mai concatenati a mano.
-- Testa sempre con una lingua "estrema" (tedesco per lunghezza, arabo per direzione) invece di solo inglese/italiano.
+## 81. Internationalization and RTL layout
 
 
-## 84. Responsive images: la grandezza giusta per ogni schermo
+- Never hardcode `left`/`right` in CSS: use logical properties (`margin-inline-start`, `padding-inline-end`) for an automatic flip in Arabic/Hebrew.
+- Directional icons (back/next arrows, chevrons) should be mirrored in RTL, but icons with universal meaning (play, check) stay unchanged.
+- Translated text can take up to 30-40% more space (German, Finnish): don't fix rigid widths on buttons and labels.
+- Format dates, numbers, and currencies with the browser's locale-aware APIs (`Intl.DateTimeFormat`, `Intl.NumberFormat`), never concatenated by hand.
+- Always test with an "extreme" language (German for length, Arabic for direction) instead of just English/Italian.
 
 
-- Usa `srcset` e `sizes` per servire la risoluzione adatta al dispositivo, invece di scaricare sempre l'immagine più pesante.
-- Formati moderni (WebP, AVIF) con fallback JPEG/PNG riducono peso senza perdita percepibile di qualità.
-- Applica sempre `width`/`height` (o `aspect-ratio`) espliciti per riservare lo spazio e prevenire layout shift al caricamento.
-- Il lazy loading (`loading="lazy"`) va applicato solo alle immagini fuori dal viewport iniziale — quelle above-the-fold vanno caricate subito.
-- Per foto con soggetto non centrato, usa `object-position` mirato invece del default center, così il crop responsive non taglia la parte importante.
+## 84. Responsive images: the right size for every screen
 
+
+- Use `srcset` and `sizes` to serve the resolution appropriate for the device, instead of always downloading the heaviest image.
+- Modern formats (WebP, AVIF) with JPEG/PNG fallback reduce weight without perceptible quality loss.
+- Always apply explicit `width`/`height` (or `aspect-ratio`) to reserve space and prevent layout shift on load.
+- Lazy loading (`loading="lazy"`) should only be applied to images outside the initial viewport — above-the-fold images should load immediately.
+- For photos with an off-center subject, use targeted `object-position` instead of the default center, so the responsive crop doesn't cut off the important part.

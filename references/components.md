@@ -1,354 +1,353 @@
-# Componenti UI (form, nav, data, overlay)
+# UI components (form, nav, data, overlay)
 
-## 15. Il principio di prossimità (Gestalt)
+## 15. The principle of proximity (Gestalt)
 
 
-- Elementi vicini vengono percepiti come collegati, quelli lontani come separati — il cervello lo fa automaticamente.
-- Raggruppa elementi per **funzione** (es. navigazione, azioni, impostazioni), non per equidistanza.
-- Nei form, raggruppa i campi per contesto (dati personali, indirizzo, pagamento) invece di allinearli tutti uguali.
-- Un buon raggruppamento spaziale elimina la necessità di divider grafici.
+- Nearby elements are perceived as connected, distant ones as separate — the brain does this automatically.
+- Group elements by **function** (e.g., navigation, actions, settings), not by equal spacing.
+- In forms, group fields by context (personal data, address, payment) instead of aligning them all the same way.
+- Good spatial grouping eliminates the need for graphic dividers.
 
 
-## 22. Empty state: la prima impressione sprecata
+## 22. Empty state: the wasted first impression
 
 
-- Uno schermo vuoto senza illustrazione comunica "qualcosa è rotto" — anche una piccola illustrazione cambia tutto.
-- Scrivi il copy in tono umano, non come un log di errore.
-- Offri sempre un'**azione primaria chiara**, non solo un "aggiorna".
-- Distingui i 4 tipi di "vuoto": primo utilizzo, nessun risultato, errore, filtro senza match — ognuno merita un design diverso.
-- L'empty state è un'occasione di onboarding, non solo un fallback.
+- An empty screen without an illustration communicates "something is broken" — even a small illustration changes everything.
+- Write the copy in a human tone, not like an error log.
+- Always offer a **clear primary action**, not just a "refresh".
+- Distinguish the 4 types of "empty": first use, no results, error, filter with no match — each deserves a different design.
+- The empty state is an onboarding opportunity, not just a fallback.
 
 
-## 23. Le regole dei toast notification
+## 23. The rules of toast notifications
 
 
-- **Posizione**: desktop in basso a destra, mobile in alto — mai al centro (blocca l'interazione).
-- **Timing**: info 4s, warning 7s, errori restano finché l'utente non li chiude — un timer fisso per tutti è un bug.
-- **Stacking**: massimo 3 visibili, i nuovi spingono i vecchi con physics "a molla".
-- **Sempre dismissibili**: bottone di chiusura o swipe — altrimenti è un modal travestito.
-- **Color coding**: icona + bordo colorato, non solo lo sfondo (il 6% degli utenti non distingue solo il colore).
+- **Position**: bottom-right on desktop, top on mobile — never in the center (it blocks interaction).
+- **Timing**: info 4s, warning 7s, errors stay until the user dismisses them — a fixed timer for all of them is a bug.
+- **Stacking**: max 3 visible, new ones push old ones with "spring" physics.
+- **Always dismissible**: close button or swipe — otherwise it's a modal in disguise.
+- **Color coding**: icon + colored border, not just the background (6% of users can't distinguish by color alone).
 
 
-## 25. Le 5 regole di un dropdown ben fatto
+## 25. The 5 rules of a well-made dropdown
 
 
-- Trigger chiaro: freccia, hover state, target minimo 44px.
-- **Flip automatico** verso l'alto se non c'è spazio sotto — mai tagliare l'ultimo elemento.
-- Navigazione da tastiera obbligatoria: frecce, invio, escape.
-- Oltre 10 elementi aggiungi la ricerca; oltre 100, virtualizza la lista.
-- Anima l'apertura sotto i 150ms — abbastanza veloce da sembrare istantanea.
+- Clear trigger: arrow, hover state, minimum 44px target.
+- **Automatic flip** upward if there's no room below — never cut off the last item.
+- Keyboard navigation required: arrows, enter, escape.
+- Beyond 10 items add search; beyond 100, virtualize the list.
+- Animate the opening under 150ms — fast enough to feel instant.
 
 
-## 26. Le regole di un tooltip che non infastidisce
+## 26. The rules of a tooltip that doesn't annoy
 
 
-- Attendi 300ms prima di mostrarlo — i tooltip istantanei generano solo rumore.
-- Usa sempre una freccia che colleghi il tooltip al suo trigger.
-- Fai il flip vicino ai bordi dello schermo per non tagliarlo.
-- Deve essere chiudibile in più modi: mouse fuori, escape, focus out, tap esterno.
-- Massimo 300px di larghezza, una frase — è un suggerimento, non documentazione.
+- Wait 300ms before showing it — instant tooltips just generate noise.
+- Always use an arrow connecting the tooltip to its trigger.
+- Flip it near screen edges so it isn't cut off.
+- It must be dismissible in multiple ways: mouse out, escape, focus out, tap outside.
+- Maximum 300px wide, one sentence — it's a hint, not documentation.
 
 
-## 27. I 6 stati di un campo form (la maggior parte delle app ne implementa solo 2)
+## 27. The 6 states of a form field (most apps implement only 2)
 
 
-- **Default**: label sempre visibile fuori dal campo, mai solo nel placeholder.
-- **Focus**: ring con contrasto minimo 3:1 (il classico glow blu spesso fallisce l'accessibilità).
-- **Error**: colore + icona + messaggio — un bordo rosso da solo è invisibile al 12% degli utenti con daltonismo.
-- **Success**: check verde dentro il campo, non un toast separato.
-- **Disabled**: sfondo in scala di grigi (non solo opacity 50%) + cursor not-allowed.
-- **Loading**: spinner interno, campo disabilitato — previene il bug del doppio submit.
+- **Default**: label always visible outside the field, never only in the placeholder.
+- **Focus**: ring with minimum 3:1 contrast (the classic blue glow often fails accessibility).
+- **Error**: color + icon + message — a red border alone is invisible to 12% of colorblind users.
+- **Success**: green check inside the field, not a separate toast.
+- **Disabled**: grayscale background (not just 50% opacity) + cursor not-allowed.
+- **Loading**: internal spinner, disabled field — prevents the double-submit bug.
 
 
-## 28. Come scegliere il pattern di navigazione giusto
+## 28. How to choose the right navigation pattern
 
 
-- **Tab bar**: solo mobile, massimo 3-5 destinazioni principali.
-- **Sidebar**: solo desktop, per contenuti gerarchici o più di 5 sezioni.
-- **Hamburger**: solo per contenuti secondari — il 40% degli utenti clicca meno i menu nascosti.
-- **Command palette (Cmd+K)**: per power user, non come navigazione primaria per nuovi utenti.
-- **Breadcrumb**: solo se la gerarchia supera 2 livelli.
+- **Tab bar**: mobile only, max 3-5 main destinations.
+- **Sidebar**: desktop only, for hierarchical content or more than 5 sections.
+- **Hamburger**: only for secondary content — 40% of users click hidden menus less.
+- **Command palette (Cmd+K)**: for power users, not as primary navigation for new users.
+- **Breadcrumb**: only if the hierarchy exceeds 2 levels.
 
 
-## 29. 5 fix per error state che non frustrano l'utente
+## 29. 5 fixes for error states that don't frustrate the user
 
 
-- Distingui il tipo di errore (validazione, rete, server, permessi) — ognuno merita un pattern visivo diverso.
-- Offri sempre una via d'uscita: retry, refresh, contatto.
-- La superficie dipende dalla gravità: inline per errori recuperabili, toast per transitori, modal solo quando serve bloccare tutto.
-- Usa un linguaggio umano ("connessione persa, riconnessione in corso") invece di messaggi tecnici.
-- La validazione inline previene l'80% degli errori prima che accadano.
+- Distinguish the type of error (validation, network, server, permissions) — each deserves a different visual pattern.
+- Always offer a way out: retry, refresh, contact.
+- The surface depends on severity: inline for recoverable errors, toast for transient ones, modal only when you need to block everything.
+- Use human language ("connection lost, reconnecting") instead of technical messages.
+- Inline validation prevents 80% of errors before they happen.
 
 
-## 34. Search come sistema (5 componenti)
+## 34. Search as a system (5 components)
 
 
-- Il placeholder deve descrivere concretamente cosa si può cercare (es. "cerca per nome, SKU o brand").
-- Mostra le **ricerche recenti** al focus dell'input invece di un campo vuoto.
-- L'autocomplete deve ordinare i risultati per rilevanza/click, non alfabeticamente.
-- Naviga i risultati da tastiera (frecce, invio, escape).
-- In caso di zero risultati, suggerisci alternative invece di un vicolo cieco.
+- The placeholder must concretely describe what can be searched (e.g., "search by name, SKU, or brand").
+- Show **recent searches** when the input is focused instead of an empty field.
+- Autocomplete should sort results by relevance/clicks, not alphabetically.
+- Navigate results by keyboard (arrows, enter, escape).
+- On zero results, suggest alternatives instead of a dead end.
 
 
-## 35. Date range picker: dai 6 click a 1
+## 35. Date range picker: from 6 clicks to 1
 
 
-- Offri preset per il 90% dei casi (oggi, ieri, ultimi 7/30 giorni, ultimo trimestre).
-- Mostra un'anteprima del range mentre l'utente passa il mouse, prima del secondo click.
-- Mostra due mesi affiancati per i range che attraversano mesi diversi.
-- Su mobile usa un bottom sheet fullscreen, non un popover — calendario scrollabile verticalmente.
+- Offer presets for 90% of cases (today, yesterday, last 7/30 days, last quarter).
+- Show a preview of the range as the user hovers, before the second click.
+- Show two months side by side for ranges that span different months.
+- On mobile use a fullscreen bottom sheet, not a popover — vertically scrollable calendar.
 
 
-## 36. Sistema di tab senza salti visivi
+## 36. A tab system without visual jumps
 
 
-- La linea sottostante il tab attivo deve **scorrere**, mai teletrasportarsi.
-- Con più di 8 tab, non andare a capo: scroll orizzontale con edge fade per indicare altro contenuto.
-- Naviga da tastiera (frecce, home, end).
-- Su mobile: segmented control sotto i 5 tab, bottom sheet sopra — mai solo ridimensionare la versione desktop.
+- The underline beneath the active tab must **slide**, never teleport.
+- With more than 8 tabs, don't wrap to a new line: horizontal scroll with edge fade to indicate more content.
+- Navigate by keyboard (arrows, home, end).
+- On mobile: segmented control under 5 tabs, bottom sheet above — never just resize the desktop version.
 
 
-## 37. Multi-step form: come dividere un form lungo
+## 37. Multi-step form: how to split a long form
 
 
-- Il cervello elabora bene 3 campi alla volta; 12 in fila causano fatica cognitiva/abbandono.
-- Mostra sempre un indicatore di progresso (barra, dots, step label).
-- Raggruppa i campi per **contesto** (dati personali, spedizione, pagamento), non per conteggio casuale.
-- Valida ogni step subito, non solo alla fine — un errore allo step 1 non deve emergere allo step 4.
-- Salva lo stato ad ogni step: perdere il form una volta significa perdere l'utente per sempre.
+- The brain processes 3 fields well at a time; 12 in a row cause cognitive fatigue/abandonment.
+- Always show a progress indicator (bar, dots, step labels).
+- Group fields by **context** (personal data, shipping, payment), not by arbitrary count.
+- Validate each step immediately, not only at the end — an error in step 1 shouldn't surface at step 4.
+- Save state at each step: losing the form once means losing the user forever.
 
 
-## 38. Quale superficie usare per ogni tipo di notifica
+## 38. Which surface to use for each type of notification
 
 
-- **Toast**: eventi minori, si auto-chiude in 4s (aggiungi undo per azioni distruttive).
-- **Banner**: informazioni persistenti, resta finché l'utente non lo chiude.
-- **Modal**: solo quando serve una decisione obbligata prima di continuare — spesso abusato.
-- **Badge**: notifica passiva, resta finché non viene consultata.
-- Usa la superficie in base alla **gravità del contenuto**, non per abitudine.
+- **Toast**: minor events, auto-closes in 4s (add undo for destructive actions).
+- **Banner**: persistent information, stays until the user dismisses it.
+- **Modal**: only when a mandatory decision is needed before continuing — often overused.
+- **Badge**: passive notification, stays until it's viewed.
+- Choose the surface based on the **severity of the content**, not out of habit.
 
 
-## 39. Anatomia di un toggle switch credibile
+## 39. Anatomy of a believable toggle switch
 
 
-- Le proporzioni contano: larghezza del rail = 2× diametro del knob.
-- Anima più proprietà insieme (colore rail, posizione knob, ombra, testo) in ~250ms ease-out, non uno scatto secco.
-- Deve funzionare da tastiera (barra spaziatrice) con focus ring visibile e annuncio screen reader.
-- In caso di richiesta server: mostra subito il flip, spinner nel knob, rollback se il server rifiuta.
+- Proportions matter: rail width = 2× knob diameter.
+- Animate multiple properties together (rail color, knob position, shadow, text) over ~250ms ease-out, not an abrupt snap.
+- It must work with the keyboard (spacebar) with a visible focus ring and screen reader announcement.
+- For a server request: show the flip immediately, spinner in the knob, rollback if the server rejects it.
 
 
-## 40. UX del drag-and-drop in board tipo kanban
+## 40. UX of drag-and-drop in kanban-style boards
 
 
-- Dai 3 segnali chiari quando un elemento viene "afferrato": cambio cursore, sollevamento visivo, fade dello sfondo.
-- Le drop zone devono comunicare per prime: linea di inserimento su colonna, highlight su zona.
-- Scegli lo snap in base al layout: colonne strutturate → snap; canvas libero (Figma) → free.
-- Dopo un drop indesiderato, mostra un toast con **undo** — 5 secondi per annullare evita il panico dell'utente.
+- Give 3 clear signals when an item is "grabbed": cursor change, visual lift, background fade.
+- Drop zones must communicate first: insertion line on a column, highlight on a zone.
+- Choose the snap based on the layout: structured columns → snap; free canvas (Figma) → free.
+- After an unwanted drop, show a toast with **undo** — 5 seconds to cancel avoids user panic.
 
 
-## 41. Come progettare uno star rating onesto
+## 41. How to design an honest star rating
 
 
-- Il riempimento delle stelle deve reagire già all'hover, non solo al click.
-- Preview (hover) e selezione (click) vanno tenute come due livelli separati per evitare flicker.
-- Non arrotondare un 4.4 a 5 stelle piene: mostra la frazione reale con una stella parzialmente riempita.
-- Anima il riempimento con un piccolo stagger (~30ms) tra una stella e l'altra invece di un pop simultaneo.
-- Affianca alle stelle un anello continuo che riassume il valore medio a colpo d'occhio.
+- The star fill should already react on hover, not only on click.
+- Preview (hover) and selection (click) should be kept as two separate layers to avoid flicker.
+- Don't round a 4.4 up to 5 full stars: show the real fraction with a partially filled star.
+- Animate the fill with a small stagger (~30ms) between stars instead of a simultaneous pop.
+- Pair the stars with a continuous ring that summarizes the average value at a glance.
 
 
-## 43. Slider: dettagli che sembrano piccoli ma non lo sono
+## 43. Slider: details that seem small but aren't
 
 
-- Estendi l'area cliccabile ben oltre la linea sottile — l'intera riga deve rispondere al drag.
-- Riempi visivamente tutta la parte a sinistra del thumb per comunicare il valore prima ancora di leggerlo.
-- Se i valori sono discreti (volume, rating, prezzo), fai lo snap agli step invece di un continuo impreciso.
-- Mostra il valore esatto sopra il thumb durante il drag, poi fallo sparire.
-- Supporta anche l'input da tastiera (frecce, home/end).
+- Extend the clickable area well beyond the thin line — the entire row should respond to drag.
+- Visually fill the whole area to the left of the thumb to communicate the value before it's even read.
+- If the values are discrete (volume, rating, price), snap to steps instead of an imprecise continuum.
+- Show the exact value above the thumb during drag, then make it disappear.
+- Also support keyboard input (arrows, home/end).
 
 
-## 44. Formattazione live di un campo numero carta di credito
+## 44. Live formatting of a credit card number field
 
 
-- Raggruppa le cifre a blocchi di 4 mentre l'utente digita, non alla fine.
-- Riconosci il brand dalla prima cifra e mostra subito il logo (Visa, Mastercard...).
-- Mantieni la posizione del cursore corretta quando vengono inseriti spazi automatici.
-- Non segnalare errore alla prima cifra digitata — valida on blur, non on keystroke.
-- Ripulisci automaticamente numeri incollati con trattini/spazi invece di rifiutarli.
+- Group digits into blocks of 4 as the user types, not at the end.
+- Recognize the brand from the first digit and immediately show the logo (Visa, Mastercard...).
+- Keep the cursor position correct when automatic spaces are inserted.
+- Don't flag an error on the first digit typed — validate on blur, not on keystroke.
+- Automatically clean up pasted numbers with dashes/spaces instead of rejecting them.
 
 
-## 45. Filtri a chip: un sistema, non un elenco di bottoni
+## 45. Chip filters: a system, not a list of buttons
 
 
-- Ogni chip ha 3 stati (idle, active, disabled) — se "active" somiglia troppo a "idle" il filtro sembra rotto.
-- Aggiorna il conteggio dei risultati immediatamente ad ogni tap, mai in silenzio.
-- Offri sempre un bottone "clear all" quando ci sono filtri stack.
-- Su mobile, scorri i chip orizzontalmente con edge fade invece di andare a capo.
-- Tieni i filtri attivi "pinnati" in alto per far capire perché la lista si è ristretta.
+- Each chip has 3 states (idle, active, disabled) — if "active" looks too similar to "idle" the filter seems broken.
+- Update the result count immediately on each tap, never silently.
+- Always offer a "clear all" button when filters are stacked.
+- On mobile, scroll chips horizontally with edge fade instead of wrapping.
+- Keep active filters "pinned" at the top so it's clear why the list narrowed.
 
 
-## 46. Input OTP/codice a più caselle
+## 46. OTP/code input with multiple boxes
 
 
-- Supporta il paste di un codice completo: distribuiscilo automaticamente su tutte le caselle.
-- Passa automaticamente alla casella successiva a ogni digit, torna indietro con backspace su casella vuota.
-- Tratta i box come un unico valore internamente, non come stati separati.
-- Su mobile forza la tastiera numerica e sfrutta l'autofill del codice via SMS.
-- Codice errato: shake, reset, focus sulla prima casella — feedback mai silenzioso.
+- Support pasting a complete code: automatically distribute it across all boxes.
+- Automatically move to the next box on each digit, go back with backspace on an empty box.
+- Treat the boxes as a single value internally, not as separate states.
+- On mobile force the numeric keyboard and take advantage of SMS code autofill.
+- Wrong code: shake, reset, focus on the first box — never silent feedback.
 
 
-## 47. Command palette (Cmd+K): come farla sentire istantanea
+## 47. Command palette (Cmd+K): how to make it feel instant
 
 
-- Usa fuzzy matching (es. "STG" trova "Settings") con evidenziazione delle lettere trovate.
-- Raggruppa i risultati (recenti, azioni, pagine) invece di un elenco piatto.
-- Naviga interamente da tastiera: frecce, invio, escape.
-- Se vuota, mostra comandi recenti invece di uno schermo bianco.
-- I comandi che richiedono dati asincroni devono mostrare un loader inline, senza bloccare l'intera palette.
+- Use fuzzy matching (e.g., "STG" finds "Settings") with highlighting of matched letters.
+- Group results (recent, actions, pages) instead of a flat list.
+- Navigate entirely by keyboard: arrows, enter, escape.
+- If empty, show recent commands instead of a blank screen.
+- Commands requiring async data should show an inline loader, without blocking the whole palette.
 
 
-## 48. Paginazione: perché "offset" si rompe e "cursor" no
+## 48. Pagination: why "offset" breaks and "cursor" doesn't
 
 
-- La paginazione per offset (skip N) si rompe se i dati cambiano — righe duplicate o saltate.
-- Usa la paginazione a **cursore** (dopo questo ID) per una lista stabile anche con dati che cambiano.
-- Scegli il pattern giusto: numerata per saltare a una pagina, "load more" per controllo manuale, infinite scroll per i feed.
-- Con molte pagine, tronca i link (1 ... 499 500 501 ... 1000), mantenendo sempre raggiungibili prima e ultima.
-- Salva la posizione di scroll quando si torna da un dettaglio, e la pagina nell'URL per renderla condivisibile.
+- Offset pagination (skip N) breaks if the data changes — duplicated or skipped rows.
+- Use **cursor**-based pagination (after this ID) for a stable list even with changing data.
+- Choose the right pattern: numbered to jump to a page, "load more" for manual control, infinite scroll for feeds.
+- With many pages, truncate the links (1 ... 499 500 501 ... 1000), always keeping the first and last reachable.
+- Save the scroll position when returning from a detail view, and put the page in the URL to make it shareable.
 
 
-## 49. File upload: comunicare stato in modo onesto
+## 49. File upload: communicating status honestly
 
 
-- Una drop zone deve reagire visibilmente al drag-over (bordo, glow, cambio testo) prima del rilascio.
-- Mostra percentuale e tempo stimato, non solo uno spinner generico.
-- Se l'upload fallisce al 90%, offri un retry inline che riparte dal file già caricato, mai da zero.
-- Mostra thumbnail, tipo e dimensione del file come prova visiva di cosa è stato ricevuto.
-- Con upload multipli, ogni file ha il proprio progresso e retry — un fallimento non deve bloccare gli altri.
+- A drop zone must visibly react to drag-over (border, glow, text change) before the drop.
+- Show percentage and estimated time, not just a generic spinner.
+- If the upload fails at 90%, offer an inline retry that resumes from the file already uploaded, never from scratch.
+- Show thumbnail, type, and size of the file as visual proof of what was received.
+- With multiple uploads, each file has its own progress and retry — one failure shouldn't block the others.
 
 
-## 50. Password strength: coach, non giudice
+## 50. Password strength: coach, not judge
 
 
-- La forza reale è data dalla lunghezza/entropia, non dal solo numero di simboli richiesti.
-- Mostra la checklist dei requisiti **mentre** l'utente digita, con spunte live, non dopo il submit.
-- Usa una barra di forza che cresce gradualmente invece di un giudizio binario.
-- Non bloccare il paste della password e offri il toggle "mostra password".
-- Offri la generazione automatica di una password forte con un tap.
+- Real strength comes from length/entropy, not just the number of required symbols.
+- Show the requirements checklist **while** the user types, with live checkmarks, not after submit.
+- Use a strength bar that grows gradually instead of a binary judgment.
+- Don't block pasting the password and offer a "show password" toggle.
+- Offer automatic generation of a strong password with one tap.
 
 
-## 51. Color picker moderno: OKLCH invece di HEX
+## 51. Modern color picker: OKLCH instead of HEX
 
 
-- OKLCH (luminosità, croma, hue) è più leggibile per un umano rispetto all'esadecimale.
-- Salva swatch recenti e palette per accesso rapido.
-- Verifica il **contrasto in tempo reale** al momento della scelta, non in fase di review successiva.
-- Mostra la trasparenza su una scacchiera, non solo su sfondo bianco, per non ingannare sull'effettivo alpha.
-- Da un solo hue genera automaticamente l'intera scala di tint/shade per il design system.
+- OKLCH (lightness, chroma, hue) is more human-readable than hexadecimal.
+- Save recent swatches and palettes for quick access.
+- Check **contrast in real time** at the moment of choice, not in a later review phase.
+- Show transparency over a checkerboard, not just a white background, to avoid misleading about actual alpha.
+- From a single hue, automatically generate the entire tint/shade scale for the design system.
 
 
-## 56. Undo invece di conferma: un pattern più umano
+## 56. Undo instead of confirmation: a more human pattern
 
 
-- Un "sei sicuro?" penalizza tutti per l'errore di uno; l'**undo** dà una seconda possibilità senza frizione.
-- Tratta la cancellazione come uno stato (soft delete, 30 giorni in trash), non come un evento irreversibile.
-- Riserva la conferma esplicita solo alle azioni davvero irreversibili (es. GitHub richiede di digitare il nome del repo).
-- Uno stack di undo (come Cmd+Z di Figma) è più potente di un singolo toast.
-- Anche un piccolo delay prima dell'invio (es. Gmail, 10s) può prevenire errori costosi.
+- A "are you sure?" penalizes everyone for one person's mistake; **undo** gives a second chance without friction.
+- Treat deletion as a state (soft delete, 30 days in trash), not as an irreversible event.
+- Reserve explicit confirmation only for truly irreversible actions (e.g., GitHub requires typing the repo name).
+- An undo stack (like Figma's Cmd+Z) is more powerful than a single toast.
+- Even a small delay before sending (e.g., Gmail, 10s) can prevent costly mistakes.
 
 
-## 58. Context menu: un sistema, non un elenco casuale
+## 58. Context menu: a system, not a random list
 
 
-- Il menu deve misurare lo spazio disponibile e fare flip/mirror per restare sempre dentro il viewport.
-- Raggruppa le azioni per intento con divider (es. rinomina/duplica insieme, elimina isolato in rosso in fondo).
-- Per i sottomenu, mantieni aperto il menu finché il cursore resta dentro un'area triangolare virtuale ("hover intent").
-- Supporta navigazione da tastiera: frecce, lettera per saltare a un'azione, escape per chiudere un livello alla volta.
-- Su mobile, il long-press apre lo stesso set di azioni in un bottom sheet.
+- The menu must measure available space and flip/mirror to always stay within the viewport.
+- Group actions by intent with dividers (e.g., rename/duplicate together, delete isolated in red at the bottom).
+- For submenus, keep the menu open as long as the cursor stays within a virtual triangular area ("hover intent").
+- Support keyboard navigation: arrows, letter to jump to an action, escape to close one level at a time.
+- On mobile, long-press opens the same set of actions in a bottom sheet.
 
 
-## 59. Azioni distruttive: hold-to-delete invece di "sei sicuro?"
+## 59. Destructive actions: hold-to-delete instead of "are you sure?"
 
 
-- Un anello di caricamento durante una pressione prolungata (~300ms) sostituisce efficacemente un dialogo di conferma.
-- Nomina l'azione nel bottone stesso ("Elimina progetto"), non un generico "sì/no".
-- Non posizionare mai un bottone distruttivo dove la memoria muscolare clicca automaticamente.
-- Usa il rosso solo per la distruzione: abusarlo (es. su "logout") lo svaluta e rende "delete" meno percepito come pericoloso.
-- Un cooldown (es. 14 giorni prima della cancellazione reale) è un'ultima linea di difesa.
+- A loading ring during a prolonged press (~300ms) effectively replaces a confirmation dialog.
+- Name the action in the button itself ("Delete project"), not a generic "yes/no".
+- Never position a destructive button where muscle memory clicks automatically.
+- Use red only for destruction: overusing it (e.g., on "logout") devalues it and makes "delete" feel less dangerous.
+- A cooldown (e.g., 14 days before actual deletion) is a last line of defense.
 
 
-## 60. UX del multiplayer in tempo reale (cursori condivisi)
+## 60. UX of real-time multiplayer (shared cursors)
 
 
-- Interpola la posizione dei cursori remoti per farli scorrere fluidamente invece di "teletrasportarsi" tra gli aggiornamenti del server.
-- Assegna un colore stabile a ogni utente (hash dell'ID) per renderlo riconoscibile a colpo d'occhio.
-- Mostra gli avatar dei presenti prima ancora che qualcuno parli/agisca.
-- Blocca visivamente un elemento in editing da un altro utente per prevenire conflitti (due persone che modificano la stessa shape).
-- Cliccare l'avatar di un collaboratore e seguirne il viewport sostituisce efficacemente uno screen share.
+- Interpolate remote cursor positions so they move smoothly instead of "teleporting" between server updates.
+- Assign a stable color to each user (hash of the ID) to make them recognizable at a glance.
+- Show avatars of people present even before anyone speaks/acts.
+- Visually lock an element being edited by another user to prevent conflicts (two people editing the same shape).
+- Clicking a collaborator's avatar and following their viewport effectively replaces a screen share.
 
 
-## 61. Inline editing: quando un testo diventa un input
+## 61. Inline editing: when text becomes an input
 
 
-- Segnala che un testo è editabile con hover sottile (matita, leggero tint), non lasciarlo indistinguibile.
-- Lo swap tra testo statico e input deve mantenere identici font, size e padding — un solo pixel di scarto rompe l'illusione.
-- Invio conferma, escape annulla — definisci anche cosa fa il blur (salva o scarta) e sii coerente in tutta l'app.
-- Aggiorna l'interfaccia otticamente subito (optimistic), fai rollback mostrando il motivo se il server rifiuta.
-- Più editing inline dai, più alto è il rischio di errori accidentali: calibra in base al costo di un errore.
+- Signal that text is editable with a subtle hover (pencil, light tint), don't leave it indistinguishable.
+- The swap between static text and input must keep identical font, size, and padding — a single pixel off breaks the illusion.
+- Enter confirms, escape cancels — also define what blur does (save or discard) and be consistent across the app.
+- Update the UI optimistically right away, roll back showing the reason if the server rejects it.
+- The more inline editing you offer, the higher the risk of accidental errors: calibrate based on the cost of a mistake.
 
 
-## 64. Settings page: organizzarla come un sistema
+## 64. Settings page: organizing it as a system
 
 
-- Adatta l'interazione al "raggio di impatto": i toggle si applicano subito, i campi identitari richiedono save/cancel espliciti.
-- Raggruppa per task, non per lista piatta — nascondi le opzioni avanzate dietro un click extra.
-- Aggiungi una ricerca interna: i power user cercano invece di scrollare tra decine di opzioni.
-- Segnala visivamente ogni impostazione modificata rispetto al default, con un modo rapido per resettarla.
-- Le azioni distruttive vanno isolate in fondo, con conferma tramite digitazione del nome.
+- Adapt the interaction to the "blast radius": toggles apply immediately, identity fields require explicit save/cancel.
+- Group by task, not as a flat list — hide advanced options behind an extra click.
+- Add internal search: power users search instead of scrolling through dozens of options.
+- Visually flag each setting changed from default, with a quick way to reset it.
+- Destructive actions should be isolated at the bottom, with confirmation via typing the name.
 
 
-## 69. Disabled button: quando nasconde più problemi di quanti ne risolve
+## 69. Disabled button: when it hides more problems than it solves
 
 
-- Un bottone disabled esce dal tab order: screen reader e navigazione da tastiera lo saltano senza spiegazioni.
-- Un tooltip su un elemento disabled spesso non si attiva mai, perché gli eventi puntatore sono disattivati.
-- Meglio tenere il bottone sempre attivo: al click, valida e illumina i campi mancanti, spostando il focus sul primo.
-- Distingui sempre "disabled" da "loading": durante una richiesta il bottone deve restare focus-abile e mostrare uno spinner, non sparire nel grigio.
+- A disabled button leaves the tab order: screen readers and keyboard navigation skip it without explanation.
+- A tooltip on a disabled element often never triggers, because pointer events are disabled.
+- Better to keep the button always active: on click, validate and highlight missing fields, moving focus to the first one.
+- Always distinguish "disabled" from "loading": during a request the button should remain focusable and show a spinner, not disappear into gray.
 
 
-## 70. Checkbox multipli: gestire correttamente la selezione di massa
+## 70. Multiple checkboxes: correctly handling bulk selection
 
 
-- Il checkbox dell'header ha 3 stati (checked, empty, partial) — eliminare lo stato "partial" fa perdere all'utente il controllo di cosa ha selezionato.
-- "Seleziona tutto" spesso seleziona solo le righe visibili: dichiara esplicitamente il numero totale ("seleziona tutte le 247 righe corrispondenti"), aggiornato in base ai filtri attivi.
-- Shift-click per selezionare un range è un comportamento atteso su desktop.
-- La selezione va mantenuta nello state dell'app, non nelle righe visibili — altrimenti si perde cambiando pagina.
-- Per eliminazioni massive, mostra il conteggio nel bottone d'azione invece di un modal di conferma, e offri undo per alcuni secondi dopo.
+- The header checkbox has 3 states (checked, empty, partial) — removing the "partial" state makes the user lose track of what's selected.
+- "Select all" often only selects visible rows: explicitly state the total number ("select all 247 matching rows"), updated based on active filters.
+- Shift-click to select a range is expected behavior on desktop.
+- The selection should be kept in app state, not in the visible rows — otherwise it's lost when changing pages.
+- For bulk deletions, show the count in the action button instead of a confirmation modal, and offer undo for a few seconds afterward.
 
 
-## 71. Tabelle dati: oltre righe e colonne
+## 71. Data tables: beyond rows and columns
 
 
-- Fissa (`sticky`) header e prima colonna quando la tabella scorre, così l'utente non perde mai il contesto.
-- Allinea i numeri a destra e il testo a sinistra — l'occhio confronta cifre più velocemente in colonna.
-- Lo zebra striping aiuta solo con righe dense (>8): su poche righe è rumore visivo inutile.
-- Il resize delle colonne va salvato per utente, altrimenti si ripete la stessa configurazione ad ogni sessione.
-- Ordinamento e filtro vanno nell'URL (query params), così la vista è condivisibile e sopravvive al refresh.
+- Make the header and first column `sticky` when the table scrolls, so the user never loses context.
+- Align numbers to the right and text to the left — the eye compares digits faster in a column.
+- Zebra striping only helps with dense rows (>8): on few rows it's just visual noise.
+- Column resizing should be saved per user, otherwise the same configuration is repeated every session.
+- Sorting and filtering should go in the URL (query params), so the view is shareable and survives a refresh.
 
 
-## 76. Breadcrumb e gerarchia: comunicare "dove sono" senza ambiguità
+## 76. Breadcrumb and hierarchy: communicating "where am I" without ambiguity
 
 
-- L'ultimo elemento (pagina corrente) non deve essere cliccabile — è già ovvio dov'è l'utente.
-- Su schermi stretti, tronca i livelli centrali con un "…" espandibile invece di andare a capo o rimpicciolire il font.
-- Ogni livello deve riflettere la gerarchia reale di navigazione, non l'URL tecnico (slug, ID).
-- Abbina sempre il breadcrumb a un titolo di pagina chiaro: il breadcrumb da solo non basta per orientarsi.
+- The last item (current page) shouldn't be clickable — it's already obvious where the user is.
+- On narrow screens, truncate the middle levels with an expandable "…" instead of wrapping or shrinking the font.
+- Each level must reflect the real navigation hierarchy, not the technical URL (slug, ID).
+- Always pair the breadcrumb with a clear page title: the breadcrumb alone isn't enough to orient the user.
 
 
-## 78. Rich text editor: le decisioni che nessuno nota finché non sono sbagliate
+## 78. Rich text editor: the decisions nobody notices until they're wrong
 
 
-- La toolbar deve mostrare lo stato attivo (bold premuto se il cursore è su testo bold), non restare statica.
-- Incollare da Word/Google Docs deve ripulire markup superfluo (font, spazi, span vuoti), non portarlo pari pari nel documento.
-- Le scorciatoie da tastiera standard (Cmd+B, Cmd+I) devono funzionare sempre, anche se la toolbar è nascosta.
-- Il conteggio caratteri/parole va aggiornato in tempo reale ma con debounce, per non ricalcolare ad ogni keystroke su testi lunghi.
-
+- The toolbar must show the active state (bold pressed if the cursor is on bold text), not stay static.
+- Pasting from Word/Google Docs must strip superfluous markup (fonts, spaces, empty spans), not carry it over as-is into the document.
+- Standard keyboard shortcuts (Cmd+B, Cmd+I) must always work, even if the toolbar is hidden.
+- The character/word count should update in real time but with debounce, so it isn't recalculated on every keystroke for long texts.

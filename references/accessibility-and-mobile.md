@@ -1,69 +1,68 @@
-# Accessibilità, touch e mobile
+# Accessibility, touch, and mobile
 
-## 55. Focus state e accessibilità da tastiera
-
-
-- `outline: none` senza sostituto è un problema di accessibilità, non solo estetico.
-- Un ring visibile (2px, offset, contrasto adeguato su ogni sfondo) è necessario per chi naviga da tastiera.
-- Usa `:focus-visible` per mostrare il ring solo a chi naviga da tastiera, non ai click del mouse.
-- L'ordine del focus deve seguire il DOM, non il layout visivo — occhio ai riordini via CSS.
-- I modali devono intrappolare il focus al loro interno e restituirlo al trigger alla chiusura.
-- Uno skip-link invisibile ma raggiungibile da tastiera permette di saltare la navigazione.
+## 55. Focus state and keyboard accessibility
 
 
-## 57. Swipe gesture su mobile: comunicare con il feedback tattile
+- `outline: none` without a replacement is an accessibility problem, not just an aesthetic one.
+- A visible ring (2px, offset, adequate contrast on every background) is necessary for people navigating by keyboard.
+- Use `:focus-visible` to show the ring only to keyboard users, not to mouse clicks.
+- Focus order must follow the DOM, not the visual layout — watch out for reordering via CSS.
+- Modals must trap focus inside them and return it to the trigger on close.
+- An invisible but keyboard-reachable skip link lets users skip navigation.
 
 
-- Uno swipe ha due soglie: una breve rivela i bottoni, una più lunga oltrepassa il punto di "commit".
-- Durante il gesto la riga deve resistere come un elastico; al punto di commit l'icona "scatta" e la resistenza sparisce.
-- Associa una direzione a un significato coerente (destra = azione sicura, sinistra = distruttiva) — non invertirle mai.
-- I gesture sono invisibili ai nuovi utenti: mostra un "peek" (anteprima parziale) al primo utilizzo per insegnarli.
-- Anche uno swipe rapido che elimina subito deve offrire un breve undo.
+## 57. Swipe gestures on mobile: communicating with haptic feedback
 
 
-## 68. Hover su dispositivi touch: un bug comune
+- A swipe has two thresholds: a short one reveals the buttons, a longer one crosses the "commit" point.
+- During the gesture the row should resist like an elastic; at the commit point the icon "snaps" and the resistance disappears.
+- Associate a direction with a consistent meaning (right = safe action, left = destructive) — never invert them.
+- Gestures are invisible to new users: show a "peek" (partial preview) on first use to teach them.
+- Even a quick swipe that deletes immediately should offer a brief undo.
 
 
-- I browser mobile "simulano" l'hover al primo tap, e le azioni restano visibili finché l'utente non tocca altrove.
-- Verifica il tipo di dispositivo con media query (`hover` e `pointer: coarse`), non con lo user-agent sniffing.
-- Su mobile sposta le azioni nascoste dietro hover dentro la card stessa, in uno swipe o in un bottom sheet.
-- L'hover dovrebbe rivelare informazioni extra, mai contenere l'unica via per un'azione primaria.
-- I target di tocco devono avere almeno 44px, anche se l'icona visiva è più piccola — allarga l'hit-area, non l'icona.
+## 68. Hover on touch devices: a common bug
 
 
-## 73. Bottom sheet mobile: un modal che rispetta il pollice
+- Mobile browsers "simulate" hover on the first tap, and the actions remain visible until the user touches elsewhere.
+- Check the device type with media queries (`hover` and `pointer: coarse`), not user-agent sniffing.
+- On mobile, move actions hidden behind hover into the card itself, into a swipe, or into a bottom sheet.
+- Hover should reveal extra information, never contain the only way to reach a primary action.
+- Touch targets must be at least 44px, even if the visual icon is smaller — widen the hit area, not the icon.
 
 
-- Deve poter essere trascinato per chiuderlo (drag-to-dismiss), non solo tramite una X in alto, spesso fuori portata del pollice.
-- Usa snap point multipli (peek, metà schermo, fullscreen) invece di un'unica altezza fissa.
-- Un piccolo "grabber" orizzontale in cima comunica visivamente che è trascinabile.
-- Il contenuto sotto deve restare visibile e leggermente scurito (dimming), mai completamente nascosto, per mantenere il contesto.
-- Se il contenuto supera l'altezza disponibile, solo l'area interna scrolla — l'header con le azioni resta fisso.
+## 73. Mobile bottom sheet: a modal that respects the thumb
 
 
-## 74. Contrasto e leggibilità: oltre il rapporto minimo WCAG
+- It must be draggable to dismiss (drag-to-dismiss), not only via an X at the top, which is often out of thumb reach.
+- Use multiple snap points (peek, half-screen, fullscreen) instead of a single fixed height.
+- A small horizontal "grabber" at the top visually communicates that it's draggable.
+- The content below must remain visible and slightly dimmed, never completely hidden, to preserve context.
+- If the content exceeds the available height, only the inner area scrolls — the header with the actions stays fixed.
 
 
-- Il rapporto 4.5:1 è un minimo, non un obiettivo: per testo lungo punta più in alto per ridurre l'affaticamento visivo.
-- Il testo su immagini richiede un overlay (gradiente scuro) o un contrasto verificato punto per punto, non un valore fisso.
-- La dimensione del font influisce sul contrasto percepito: testo grande (18px+ bold) tollera un rapporto minimo più basso (3:1).
-- Non affidarti solo al colore per distinguere stati (link, errori): aggiungi sempre un secondo segnale (sottolineatura, icona, peso).
+## 74. Contrast and readability: beyond the minimum WCAG ratio
 
 
-## 75. Reduced motion: animazioni che rispettano le preferenze dell'utente
+- The 4.5:1 ratio is a minimum, not a target: for long text aim higher to reduce visual fatigue.
+- Text over images requires an overlay (dark gradient) or a contrast check verified point by point, not a fixed value.
+- Font size affects perceived contrast: large text (18px+ bold) tolerates a lower minimum ratio (3:1).
+- Don't rely on color alone to distinguish states (links, errors): always add a second signal (underline, icon, weight).
 
 
-- Rispetta sempre `prefers-reduced-motion: reduce` — disattiva parallax, autoplay e transizioni grandi, non solo rallentarle.
-- Sostituisci le animazioni di posizione con semplici fade quando l'utente ha richiesto motion ridotto.
-- Le animazioni essenziali per capire un cambio di stato (es. drag-and-drop) vanno mantenute ma accorciate, non rimosse del tutto.
-- Testa sempre con la preferenza attivata nel sistema operativo, non solo leggendo il codice.
+## 75. Reduced motion: animations that respect user preferences
 
 
-## 79. Notifiche push e permessi: il timing è tutto
+- Always respect `prefers-reduced-motion: reduce` — disable parallax, autoplay, and large transitions, not just slow them down.
+- Replace position-based animations with simple fades when the user has requested reduced motion.
+- Animations essential for understanding a state change (e.g., drag-and-drop) should be kept but shortened, not removed entirely.
+- Always test with the preference enabled at the OS level, not just by reading the code.
 
 
-- Non chiedere il permesso di notifica al primo avvio: l'utente rifiuta perché non ha ancora capito il valore.
-- Chiedi il permesso subito dopo un'azione che dimostra il beneficio (es. dopo aver impostato un reminder).
-- Se il permesso viene negato, non richiederlo di nuovo subito — spiega dove riattivarlo dalle impostazioni quando serve davvero.
-- Segmenta le notifiche per tipo (utente può disattivare il marketing ma tenere quelle di sicurezza).
+## 79. Push notifications and permissions: timing is everything
 
+
+- Don't ask for notification permission on first launch: the user declines because they haven't yet understood the value.
+- Ask for permission right after an action that demonstrates the benefit (e.g., after setting a reminder).
+- If permission is denied, don't ask again right away — explain where to re-enable it from settings when it's really needed.
+- Segment notifications by type (the user can disable marketing but keep security ones).

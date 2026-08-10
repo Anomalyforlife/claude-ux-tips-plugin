@@ -1,98 +1,97 @@
-# Performance percepita, loading e attese
+# Perceived performance, loading, and waiting
 
-## 19. Skeleton screen: dettagli che fanno la differenza
-
-
-- Uno spinner comunica "aspetta", uno skeleton comunica "sta arrivando" — riduce l'ansia.
-- Lo shimmer deve muoversi nella **direzione di lettura** (sinistra→destra), il contrario sembra "sbagliato".
-- Non usare rettangoli generici: fai combaciare la forma dello skeleton al contenuto reale (cerchio per avatar, righe corte per nomi).
-- Livello successivo: **optimistic UI** — mostra subito il risultato dell'azione e fai rollback solo in caso di errore server.
+## 19. Skeleton screen: details that make the difference
 
 
-## 24. Come scegliere il giusto loading state
+- A spinner communicates "wait", a skeleton communicates "it's coming" — it reduces anxiety.
+- The shimmer must move in the **reading direction** (left→right), the opposite feels "wrong".
+- Don't use generic rectangles: match the skeleton's shape to the real content (circle for avatar, short lines for names).
+- Next level: **optimistic UI** — show the action's result immediately and roll back only if the server errors.
 
 
-- **Skeleton**: quando conosci la forma del contenuto e l'attesa supera 300ms.
-- **Spinner**: attese brevi (<3s) quando non conosci la durata.
-- **Progress bar**: quando conosci la percentuale (upload, installazioni oltre i 3s).
-- **Optimistic UI**: per azioni che riescono nel 99% dei casi (like, save) — mostra subito, fai rollback se fallisce.
-- Sotto i 300ms non mostrare nulla: un flash di loading si legge come un bug.
+## 24. How to choose the right loading state
 
 
-## 52. Quando validare un campo form (il timing conta più della regola)
+- **Skeleton**: when you know the shape of the content and the wait exceeds 300ms.
+- **Spinner**: short waits (<3s) when you don't know the duration.
+- **Progress bar**: when you know the percentage (upload, installs over 3s).
+- **Optimistic UI**: for actions that succeed 99% of the time (like, save) — show immediately, roll back if it fails.
+- Under 300ms show nothing: a flash of loading reads as a bug.
 
 
-- Validare solo al submit costringe l'utente a scoprire 10 errori insieme, tutti in rosso.
-- Validare a ogni keystroke punisce l'utente a metà parola (es. email "invalida" alla prima lettera).
-- **Validazione on-blur** (quando l'utente lascia il campo) è il compromesso giusto.
-- Dopo un primo errore, passa a validazione live su quel campo per confermare la correzione in tempo reale.
-- Un check verde è feedback tanto quanto un errore rosso — non limitarti a segnalare solo ciò che è sbagliato.
+## 52. When to validate a form field (timing matters more than the rule)
 
 
-## 53. UX writing: le parole contano quanto il layout
+- Validating only on submit forces the user to discover 10 errors all at once, all in red.
+- Validating on every keystroke punishes the user mid-word (e.g., email "invalid" on the first letter).
+- **On-blur validation** (when the user leaves the field) is the right compromise.
+- After a first error, switch to live validation on that field to confirm the fix in real time.
+- A green check is as much feedback as a red error — don't just flag what's wrong.
 
 
-- "Submit" non dice nulla; "Crea il mio account gratuito" comunica il beneficio.
-- Un errore utile propone la soluzione ("questa email è già in uso, vuoi accedere?") invece di limitarsi a segnalare il problema.
-- Un empty state è l'occasione migliore per insegnare la prima azione da fare.
-- Il placeholder non è un label: sparisce appena l'utente digita, lasciandolo senza contesto.
-- Scrivi come una persona, non come un server ("operazione fallita" non lo dice mai nessuno nella vita reale).
+## 53. UX writing: words matter as much as layout
 
 
-## 54. Optimistic UI: quando fingere che sia già fatto
+- "Submit" says nothing; "Create my free account" communicates the benefit.
+- A useful error suggests the solution ("this email is already in use, want to sign in?") instead of just flagging the problem.
+- An empty state is the best opportunity to teach the first action to take.
+- The placeholder is not a label: it disappears as soon as the user types, leaving them without context.
+- Write like a person, not like a server ("operation failed" is never something anyone says in real life).
 
 
-- Sotto i 400ms un'azione viene percepita come istantanea; oltre, uno spinner sembra un malfunzionamento anche se tutto va bene.
-- Aggiorna subito l'interfaccia e sincronizza in background, con rollback in caso di errore.
-- Funziona bene per azioni reversibili al 99% (like, save, bookmark).
-- **Mai** applicarlo a pagamenti, trasferimenti o azioni non reversibili — lì va mostrato lo stato reale, anche se è "attendi".
+## 54. Optimistic UI: when to pretend it's already done
 
 
-## 62. Checklist per un audit UX rapido di interfacce generate da AI
+- Under 400ms an action is perceived as instant; beyond that, a spinner looks like a malfunction even if everything is fine.
+- Update the interface immediately and sync in the background, with rollback on error.
+- Works well for actions that are 99% reversible (like, save, bookmark).
+- **Never** apply it to payments, transfers, or non-reversible actions — there, show the real state, even if it's "please wait".
 
 
-- Le interfacce generate automaticamente spesso replicano 1:1 lo schema del database (12 colonne, delete accanto a edit) invece di pensare all'utente.
-- Chiediti sempre: chi userà questa pagina, e qual è l'errore peggiore che potrebbe commettere?
-- Le azioni distruttive vanno protette (conferma con digitazione), la ricerca dovrebbe spesso essere l'azione primaria.
-- Specifica ogni stato (loading, empty, error, success, offline, partial) prima di scrivere codice, non dopo.
-- Su un'interfaccia già live, un audit sistematico dovrebbe restituire una lista di fix ordinata per severità, non consigli generici.
+## 62. Checklist for a quick UX audit of AI-generated interfaces
 
 
-## 63. Auto-save: uno stato affidabile, non solo un'icona
+- Automatically generated interfaces often replicate the database schema 1:1 (12 columns, delete next to edit) instead of thinking about the user.
+- Always ask: who will use this page, and what's the worst mistake they could make?
+- Destructive actions must be protected (confirmation via typing), search should often be the primary action.
+- Specify every state (loading, empty, error, success, offline, partial) before writing code, not after.
+- On an already-live interface, a systematic audit should produce a list of fixes ordered by severity, not generic advice.
 
 
-- Usa un debounce (es. pausa di 800ms nella digitazione) prima di salvare, non ad ogni keystroke.
-- Comunica lo stato con una pillola testuale (digitando/salvataggio/salvato/offline/errore) — l'utente si fida di questo indicatore più della feature stessa.
-- In offline, accoda le modifiche localmente con un badge che ne mostra il conteggio, e scarica la coda in ordine alla riconnessione.
-- Con più tab aperte sullo stesso documento, non sovrascrivere in silenzio: fai merge o avvisa esplicitamente.
-- Se l'utente prova a chiudere con modifiche non salvate, blocca la chiusura con un avviso del browser.
+## 63. Auto-save: a reliable state, not just an icon
 
 
-## 72. Skeleton vs contenuto reale: evitare il layout shift
+- Use a debounce (e.g., 800ms pause in typing) before saving, not on every keystroke.
+- Communicate the state with a text pill (typing/saving/saved/offline/error) — the user trusts this indicator more than the feature itself.
+- While offline, queue changes locally with a badge showing the count, and flush the queue in order upon reconnection.
+- With multiple tabs open on the same document, don't silently overwrite: merge or explicitly warn.
+- If the user tries to close with unsaved changes, block the close with a browser warning.
 
 
-- Le dimensioni dello skeleton devono combaciare esattamente con quelle del contenuto finale (altezza riga, larghezza immagine) o si genera un salto visivo (CLS).
-- Riserva sempre lo spazio per immagini/iframe con `aspect-ratio`, mai lasciare che il layout "salti" quando l'asset carica.
-- I font web devono avere un fallback con metriche simili (`font-display: swap` + font di sistema) per non spostare il testo al caricamento.
-- Banner e notifiche dinamiche vanno inseriti con animazione di altezza, non con un semplice "pop" che spinge il contenuto sotto.
+## 72. Skeleton vs. real content: avoiding layout shift
 
 
-## 82. Liste lunghe: virtualizzazione e performance percepita
+- The skeleton's dimensions must exactly match those of the final content (row height, image width) or you get a visual jump (CLS).
+- Always reserve space for images/iframes with `aspect-ratio`, never let the layout "jump" when the asset loads.
+- Web fonts need a fallback with similar metrics (`font-display: swap` + system font) to avoid shifting the text on load.
+- Dynamic banners and notifications should be inserted with a height animation, not a simple "pop" that pushes the content below.
 
 
-- Oltre qualche centinaio di elementi, renderizza solo le righe visibili nel viewport (windowing) — il DOM con migliaia di nodi rallenta scroll e interazione.
-- Mantieni un buffer di righe sopra/sotto la viewport (overscan) per evitare flash bianchi durante lo scroll veloce.
-- Se le righe hanno altezza variabile, misura e memorizza le altezze reali invece di stimarle: una stima sbagliata fa "saltare" la scrollbar.
-- Preserva la posizione di scroll quando nuovi elementi vengono aggiunti in cima (es. chat, feed), altrimenti l'utente perde il punto di lettura.
-- Il fetch dei dati va paginato in parallelo alla virtualizzazione: non caricare mai tutto il dataset solo per renderizzarne una parte.
+## 82. Long lists: virtualization and perceived performance
 
 
-## 85. Micro-copy per attese lunghe: non lasciare l'utente al buio
+- Beyond a few hundred items, render only the rows visible in the viewport (windowing) — a DOM with thousands of nodes slows down scroll and interaction.
+- Keep a buffer of rows above/below the viewport (overscan) to avoid white flashes during fast scrolling.
+- If rows have variable height, measure and store the real heights instead of estimating them: a wrong estimate makes the scrollbar "jump".
+- Preserve scroll position when new items are added at the top (e.g., chat, feed), otherwise the user loses their reading point.
+- Data fetching should be paginated in parallel with virtualization: never load the entire dataset just to render part of it.
 
 
-- Oltre i 5-10 secondi, sostituisci uno spinner generico con messaggi di stato che avanzano ("stiamo preparando i tuoi dati…", "quasi fatto…").
-- Se la durata è nota (es. elaborazione file), mostra un tempo stimato invece di un'attesa indefinita — anche se approssimativo, riduce l'ansia.
-- Varia il messaggio se l'attesa si prolunga oltre l'atteso ("sta richiedendo più del previsto, resta con noi") invece di ripetere lo stesso testo.
-- Offri sempre un'via d'uscita esplicita per attese molto lunghe (annulla, continua in background e notifica al termine).
-- Il linguaggio dei messaggi di attesa deve restare umano e rassicurante, mai tecnico ("elaborazione in corso" batte "processing job #4471").
+## 85. Micro-copy for long waits: don't leave the user in the dark
 
+
+- Beyond 5-10 seconds, replace a generic spinner with progressing status messages ("preparing your data…", "almost done…").
+- If the duration is known (e.g., file processing), show an estimated time instead of an indefinite wait — even if approximate, it reduces anxiety.
+- Vary the message if the wait runs longer than expected ("this is taking longer than usual, hang tight") instead of repeating the same text.
+- Always offer an explicit way out for very long waits (cancel, continue in the background and notify on completion).
+- The language of waiting messages must stay human and reassuring, never technical ("processing" beats "processing job #4471").

@@ -1,38 +1,37 @@
-# Client/server boundary, offline e onboarding
+# Client/server boundary, offline, and onboarding
 
-## 3. I dark pattern più comuni (da evitare)
-
-
-- **Confirm shaming**: opzioni "no" scritte per far sentire in colpa.
-- **Hidden costs**: prezzo basso iniziale, costi extra nascosti al checkout.
-- **Roach motel**: iscrizione in un click, disiscrizione volutamente complessa.
+## 3. The most common dark patterns (to avoid)
 
 
-## 65. Cosa succede davvero quando l'utente clicca "acquista"
+- **Confirm shaming**: "no" options worded to make you feel guilty.
+- **Hidden costs**: low initial price, extra costs hidden at checkout.
+- **Roach motel**: one-click signup, deliberately complicated cancellation.
 
 
-- Il browser valida il form localmente prima di inviare qualsiasi richiesta di rete — feedback istantaneo è compito del frontend.
-- Il backend rivalida **sempre** tutto: l'input del client non è mai attendibile.
-- Stock, prezzo e pagamento vengono verificati lato server; la scrittura sul database avviene in un'unica transazione atomica (o commit tutto o nulla).
-- La UI si ridisegna sui dati reali restituiti dal server, non su una previsione.
-- Solo le azioni "leggere" (like, rename) possono permettersi l'optimistic UI — un pagamento deve sempre mostrare lo spinner reale.
+## 65. What really happens when the user clicks "buy"
 
 
-## 80. Onboarding: il primo minuto decide tutto
+- The browser validates the form locally before sending any network request — instant feedback is the frontend's job.
+- The backend **always** revalidates everything: client input is never trustworthy.
+- Stock, price, and payment are verified server-side; the database write happens in a single atomic transaction (all or nothing commit).
+- The UI redraws based on the real data returned by the server, not on a prediction.
+- Only "lightweight" actions (like, rename) can afford optimistic UI — a payment must always show the real spinner.
 
 
-- Fai raggiungere il primo "aha moment" nel minor numero di step possibile, rimandando la configurazione avanzata a dopo.
-- Un tour con troppi tooltip in sequenza viene chiuso senza essere letto: preferisci 1-2 hint contestuali al momento giusto.
-- Chiedi solo i dati strettamente necessari per iniziare; il resto del profilo si completa progressivamente (progressive disclosure).
-- Mostra dati/contenuti di esempio (seed data) invece di uno stato vuoto totale, così l'utente capisce subito cosa fare.
+## 80. Onboarding: the first minute decides everything
 
 
-## 83. Offline-first: continuare a funzionare senza rete
+- Get the user to their first "aha moment" in as few steps as possible, deferring advanced configuration to later.
+- A tour with too many tooltips in sequence gets dismissed without being read: prefer 1-2 contextual hints at the right moment.
+- Ask only for the data strictly necessary to get started; the rest of the profile gets completed progressively (progressive disclosure).
+- Show sample data/content (seed data) instead of a totally empty state, so the user immediately understands what to do.
 
 
-- Distingui sempre "offline" da "richiesta lenta": un banner esplicito ("sei offline") evita che l'utente scambi la disconnessione per un bug.
-- Le azioni fatte offline vanno accodate localmente e sincronizzate alla riconnessione, non semplicemente perse o bloccate.
-- Mostra chiaramente quali dati sono già disponibili in cache (e potenzialmente non aggiornati) rispetto a quelli mancanti.
-- In caso di conflitto tra modifiche offline e dati aggiornati sul server, chiedi all'utente come risolvere invece di sovrascrivere in silenzio.
-- Un service worker con cache-first per gli asset statici mantiene l'app utilizzabile anche a connessione instabile.
+## 83. Offline-first: continuing to work without a network
 
+
+- Always distinguish "offline" from "slow request": an explicit banner ("you're offline") prevents the user from mistaking the disconnection for a bug.
+- Actions performed offline should be queued locally and synced on reconnection, not simply lost or blocked.
+- Clearly show which data is already available from cache (and potentially outdated) versus what's missing.
+- In case of conflict between offline changes and updated server data, ask the user how to resolve it instead of silently overwriting.
+- A service worker with cache-first for static assets keeps the app usable even on an unstable connection.

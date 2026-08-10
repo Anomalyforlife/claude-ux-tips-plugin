@@ -1,65 +1,64 @@
-# Design system, layout e token
+# Design system, layout, and tokens
 
-## 5. Perché una card sembra "cheap" (e come risolverlo)
-
-
-- Aumenta il **padding** interno (es. da 8px a 28px) per un look più intenzionale.
-- Dai **spazio proprio** a ogni elemento (avatar, testo, immagine, azioni).
-- Alza il **line-height** del testo (es. da 1.1 a 1.6) per farlo "respirare".
-- Lo spacing, non il colore o il font, è spesso il vero responsabile della percezione di qualità.
+## 5. Why a card looks "cheap" (and how to fix it)
 
 
-## 11. Le basi di un design system (colore, tipografia, spacing)
+- Increase the internal **padding** (e.g., from 8px to 28px) for a more intentional look.
+- Give each element its **own space** (avatar, text, image, actions).
+- Increase the text's **line-height** (e.g., from 1.1 to 1.6) to let it "breathe".
+- Spacing, not color or font, is often the real culprit behind the perception of quality.
 
 
-- **Colore**: parti da un hue, usa monocromatico (variazioni di luminosità), complementare (contrasto) o analogo (armonia).
-- **Tipografia**: usa una scala modulare a rapporto fisso (display/heading/body/caption) invece di size casuali.
-- **Spacing**: definisci un'unità base (es. 8px) e usane sempre i multipli.
-- Colore + tipografia + spacing = atomi che compongono bottoni (molecole) e card (organismi).
+## 11. The basics of a design system (color, typography, spacing)
 
 
-## 14. FigmaMake — da mockup statico a prototipo interattivo (tool)
+- **Color**: start from a hue, use monochromatic (lightness variations), complementary (contrast), or analogous (harmony).
+- **Typography**: use a fixed-ratio modular scale (display/heading/body/caption) instead of arbitrary sizes.
+- **Spacing**: define a base unit (e.g., 8px) and always use multiples of it.
+- Color + typography + spacing = atoms that make up buttons (molecules) and cards (organisms).
 
 
-- I mockup statici non trasmettono l'esperienza reale agli stakeholder.
-- Con prompt testuali si generano animazioni/interazioni mantenendo il design system esistente.
-- Utile per passare da PRD a prototipo funzionante in pochi minuti, senza codice.
+## 14. FigmaMake — from static mockup to interactive prototype (tool)
 
 
-## 16. I 3 tipi di white space
+- Static mockups don't convey the real experience to stakeholders.
+- With text prompts you generate animations/interactions while keeping the existing design system.
+- Useful for going from PRD to a working prototype in a few minutes, without code.
 
 
-- **Micro white space**: padding interno a un bottone.
-- **Macro white space**: margini tra sezioni.
-- **Active white space**: spazi ampi intenzionali per guidare l'occhio verso ciò che conta.
-- Raddoppiare padding/gap (es. 16→32px, 8→16px) può far percepire una card come "premium" a parità di contenuto.
+## 16. The 3 types of white space
 
 
-## 18. Il grid system non è "12 colonne uguali"
+- **Micro white space**: internal padding of a button.
+- **Macro white space**: margins between sections.
+- **Active white space**: intentional generous spacing to guide the eye toward what matters.
+- Doubling padding/gap (e.g., 16→32px, 8→16px) can make a card feel "premium" with the same content.
 
 
-- Il grid è un **sistema di rapporti** (es. 4+8, 6+6, 3+9), non solo colonne fisse.
-- Ai breakpoint il grid si riconfigura (12 → 6 → 4 → 1), non sparisce.
-- Il gutter è una scelta di design: 8px sembra tecnico, 24px bilanciato, 40px editoriale/lussuoso.
-- Rompere il grid intenzionalmente (hero full-bleed, pull quote) crea contrasto, non caos.
+## 18. The grid system isn't "12 equal columns"
 
 
-## 21. I 5 pilastri di un design system che funziona
+- The grid is a **system of ratios** (e.g., 4+8, 6+6, 3+9), not just fixed columns.
+- At breakpoints the grid reconfigures (12 → 6 → 4 → 1), it doesn't disappear.
+- The gutter is a design choice: 8px feels technical, 24px balanced, 40px editorial/luxurious.
+- Intentionally breaking the grid (full-bleed hero, pull quote) creates contrast, not chaos.
 
 
-- **Sistema colore semantico**: nomina i colori per scopo (background, brand, success, error), non per valore hex.
-- **Type scale**: dimensioni/pesi/line-height intenzionali per ogni livello (display/heading/body/small).
-- **Spacing coerente**: unità base fissa (es. 4px) e multipli per ogni margin/padding/gap.
-- **Componenti con tutti gli stati**: default, hover, active, focus, disabled — non solo l'happy path.
-- **Motion con scopo**: easing e durata coerenti (ease-out per entrate, ease-in per uscite, max 300ms).
+## 21. The 5 pillars of a design system that works
 
 
-## 67. Estrarre e riusare i design token in modo coerente (case study tool)
+- **Semantic color system**: name colors by purpose (background, brand, success, error), not by hex value.
+- **Type scale**: intentional sizes/weights/line-heights for each level (display/heading/body/small).
+- **Consistent spacing**: fixed base unit (e.g., 4px) and multiples for every margin/padding/gap.
+- **Components with all states**: default, hover, active, focus, disabled — not just the happy path.
+- **Motion with purpose**: consistent easing and duration (ease-out for entrances, ease-in for exits, max 300ms).
 
 
-- Interfacce generate una alla volta tendono a divergere (colori/stili diversi ad ogni schermata) se non condividono un file di sistema unico.
-- Prima di inventare nuovi valori, leggi cosa esiste già (config Tailwind, variabili CSS, componenti più riusati) — spesso il sistema è già lì.
-- Ogni token estratto dovrebbe avere una motivazione esplicita registrata, non essere "inventato silenziosamente".
-- Le estensioni al sistema sono permesse, ma vanno documentate con la ragione — è così che nascono le derive di stile.
-- Forzare "una decisione per asse" (tipo, colore, spazio, finish) previene un risultato coerente ma poco distintivo.
+## 67. Extracting and reusing design tokens consistently (tool case study)
 
+
+- Interfaces generated one at a time tend to diverge (different colors/styles on each screen) if they don't share a single system file.
+- Before inventing new values, read what already exists (Tailwind config, CSS variables, most reused components) — the system is often already there.
+- Every extracted token should have an explicit rationale recorded, not be "silently invented".
+- Extensions to the system are allowed, but must be documented with the reason — that's how style drift happens.
+- Forcing "one decision per axis" (type, color, spacing, finish) prevents a consistent but undistinctive result.
