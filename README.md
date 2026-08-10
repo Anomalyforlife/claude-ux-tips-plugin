@@ -22,8 +22,8 @@ A [Claude Code](https://claude.com/claude-code) plugin containing 85 practical U
 This repo is itself a plugin marketplace (single plugin). Add it as a source, then install:
 
 ```
-/plugin marketplace add Anomalyforlife/claude-ux-tips-skill
-/plugin install ux-tips@claude-ux-tips-skill
+/plugin marketplace add Anomalyforlife/claude-ux-tips-plugin
+/plugin install ux-tips@claude-ux-tips-plugin
 ```
 
 ### As a standalone skill
@@ -31,7 +31,7 @@ This repo is itself a plugin marketplace (single plugin). Add it as a source, th
 If you just want the skill without the plugin wrapper, copy `skills/ux-tips/` into your project's `.claude/skills/` directory (or `~/.claude/skills/` for a global install):
 
 ```bash
-git clone https://github.com/Anomalyforlife/claude-ux-tips-skill.git /tmp/ux-tips-plugin
+git clone https://github.com/Anomalyforlife/claude-ux-tips-plugin.git /tmp/ux-tips-plugin
 cp -r /tmp/ux-tips-plugin/skills/ux-tips .claude/skills/ux-tips
 ```
 

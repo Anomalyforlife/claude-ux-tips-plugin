@@ -1,6 +1,6 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
-  "name": "claude-ux-tips-skill",
+  "name": "claude-ux-tips-plugin",
   "description": "Marketplace for the ux-tips plugin: 85 practical UX/UI tips organized by topic.",
   "owner": {
     "name": "Anomalyforlife"
