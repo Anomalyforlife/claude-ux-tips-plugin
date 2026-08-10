@@ -1,0 +1,17 @@
+{
+  "name": "ux-tips",
+  "description": "85 practical UX/UI tips organized by topic (micro-interactions, components, accessibility, mobile, perceived performance, dark mode, i18n) as a Claude Code skill.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Anomalyforlife"
+  },
+  "repository": "https://github.com/Anomalyforlife/claude-ux-tips-skill",
+  "license": "MIT",
+  "keywords": [
+    "ux",
+    "ui",
+    "design",
+    "frontend",
+    "accessibility"
+  ]
+}
